@@ -1,0 +1,23 @@
+---
+title: "hw1"
+author: "Таисия Метелкина"
+date: '18 декабря 2018 г '
+output: html_document
+---
+
+### 1.1
+
+```{r, include=FALSE}
+f <- function(x) {
+  dlnorm(x = x, mean = 3, sd = 0.5)
+  }
+integrate(f, 25, 50)
+```
+
+### 1.2
+
+```{r, include=FALSE}
+lower <- qlnorm(0.1, mean = 3, sd = 0.5)
+upper <- qlnorm(0.9, mean = 3, sd = 0.5)
+integrate(f, lower, upper)
+```
