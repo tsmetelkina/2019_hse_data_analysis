@@ -1,0 +1,37 @@
+---
+title: "Untitled"
+author: "Таисия Метелкина"
+date: '25 декабря 2018 г '
+output: html_document
+---
+
+### 2.1
+```{r setup, include=FALSE}
+setwd('C:\\Users\\admin\\Desktop')
+languages <-  read.csv('hw2_phoible.csv')
+consonants <-  languages$consonants
+phonemes <-  languages$phonemes
+cons_part <- consonants / phonemes
+languages <-  cbind(languages, cons_part)
+
+index <- which.max (languages$cons_part)
+
+languages[index, 1]
+```
+
+### 2.2
+```{r setup, include=FALSE}
+#density = dbeta(x, shape1 = 9.300246, shape2 = 4.4545) 
+a <- 9.300246
+b <- 4.4545 
+upd <- abs (cons_part - ((consonants + a) / (phonemes + a + b)))
+
+languages <- cbind(languages, upd) 
+
+library (dplyr)
+x <- arrange(languages, desc(languages$upd))
+six <- x[c(1:6),]
+
+six[,1]
+
+```
