@@ -7,8 +7,7 @@ output: html_document
 
 ### 2.1
 ```{r setup, include=FALSE}
-setwd('C:\\Users\\admin\\Desktop')
-languages <-  read.csv('hw2_phoible.csv')
+languages <-read.csv('https://raw.githubusercontent.com/agricolamz/2019_data_analysis_for_linguists/master/data/students/tsmetelkina/hw2_Bayesian_inference/hw2_phoible.csv')
 consonants <-  languages$consonants
 phonemes <-  languages$phonemes
 cons_part <- consonants / phonemes
