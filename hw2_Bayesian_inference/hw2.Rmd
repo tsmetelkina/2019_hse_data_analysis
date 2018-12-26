@@ -28,9 +28,8 @@ upd <- abs (cons_part - ((consonants + a) / (phonemes + a + b)))
 languages <- cbind(languages, upd) 
 
 library (dplyr)
-x <- arrange(languages, desc(languages$upd))
-six <- x[c(1:6),]
+languages <- arrange(languages, desc(languages$upd))
+six <- languages[c(1:6),]
 
 six[,1]
-
 ```
