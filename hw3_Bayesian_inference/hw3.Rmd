@@ -1,0 +1,38 @@
+---
+title: "HW_3"
+author: "Таисия Метелкина"
+date: '28 января 2019 г '
+output: html_document
+---
+
+#3.1
+
+```{r setup, include=FALSE}
+
+library (tidyverse)
+
+df <- read_csv('https://raw.githubusercontent.com/agricolamz/2019_data_analysis_for_linguists/master/data/students/tsmetelkina/hw3_Bayesian_inference/hw3_phoible.csv')
+df <- mutate(df, likelihood = dnorm(df$consonants, 22, 6))
+prod(df$likelihood)
+```
+
+#3.2
+
+```{r setup, include=FALSE}
+
+df2 <- read_csv('https://raw.githubusercontent.com/agricolamz/2019_data_analysis_for_linguists/master/data/letter_frequency.csv')
+res <-  data_frame(languages = colnames(df2)[1:13],
+           prior = 1/length(languages),
+           likelihood = as.numeric(filter(df2, letter == 'm')[1:13]) * as.numeric(filter(df2, letter == 'o')[1:13]) * as.numeric(filter(df2, letter == 's')[1:13]) * as.numeric(filter(df2, letter == 't')[1:13]),
+           product = prior*likelihood,
+           posterior = product/sum(product))
+max(res$posterior)
+```
+
+#3.3
+
+```{r setup, include=FALSE}
+
+df3 <- read_csv('https://raw.githubusercontent.com/agricolamz/2019_data_analysis_for_linguists/master/data/students/tsmetelkina/hw3_Bayesian_inference/hw3_task_3.csv')
+(df3$a+33)/(df3$a+33+df3$b+77)
+```
