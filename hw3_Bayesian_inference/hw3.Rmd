@@ -23,7 +23,7 @@ prod(df$likelihood)
 library (tidyverse)
 
 df2 <- read_csv('https://raw.githubusercontent.com/agricolamz/2019_data_analysis_for_linguists/master/data/letter_frequency.csv')
-res <-  data_frame(languages = colnames(df2)[1:13],
+res <- data_frame(languages = colnames(df2)[1:13],
            prior = 1/length(languages),
            likelihood = as.numeric(filter(df2, letter == 'm')[1:13]) * as.numeric(filter(df2, letter == 'o')[1:13]) * as.numeric(filter(df2, letter == 's')[1:13]) * as.numeric(filter(df2, letter == 't')[1:13]),
            product = prior*likelihood,
