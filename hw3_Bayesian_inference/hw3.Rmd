@@ -20,6 +20,8 @@ prod(df$likelihood)
 
 ```{r setup, include=FALSE}
 
+library (tidyverse)
+
 df2 <- read_csv('https://raw.githubusercontent.com/agricolamz/2019_data_analysis_for_linguists/master/data/letter_frequency.csv')
 res <-  data_frame(languages = colnames(df2)[1:13],
            prior = 1/length(languages),
@@ -32,6 +34,8 @@ max(res$posterior)
 ###3.3
 
 ```{r setup, include=FALSE}
+
+library (tidyverse)
 
 df3 <- read_csv('https://raw.githubusercontent.com/agricolamz/2019_data_analysis_for_linguists/master/data/students/tsmetelkina/hw3_Bayesian_inference/hw3_task_3.csv')
 (df3$a+33)/(df3$a+33+df3$b+77)
