@@ -1,11 +1,11 @@
 ---
-title: "HW_3"
+title: "hw_3"
 author: "Таисия Метелкина"
 date: '28 января 2019 г '
 output: html_document
 ---
 
-#3.1
+###3.1
 
 ```{r setup, include=FALSE}
 
@@ -16,7 +16,7 @@ df <- mutate(df, likelihood = dnorm(df$consonants, 22, 6))
 prod(df$likelihood)
 ```
 
-#3.2
+###3.2
 
 ```{r setup, include=FALSE}
 
@@ -29,7 +29,7 @@ res <-  data_frame(languages = colnames(df2)[1:13],
 max(res$posterior)
 ```
 
-#3.3
+###3.3
 
 ```{r setup, include=FALSE}
 
