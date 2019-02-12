@@ -1,0 +1,30 @@
+---
+title: "hw_4"
+author: "Таисия Метелкина"
+date: '12 февраля 2019 г '
+output: html_document
+---
+
+### 4.1
+```{r setup, include=FALSE}
+Coretta <- read.csv ('https://raw.githubusercontent.com/agricolamz/2019_data_analysis_for_linguists/master/data/students/tsmetelkina/hw4_Advanced_Bayesian/hw4_caretta.csv')
+mean_prior <- mean (Coretta$vowel.dur, trim = 0.1)
+sd_prior <- sd (Coretta$vowel.dur) 
+
+brs02 <- Coretta[Coretta$speaker == 'brs02',]$vowel.dur
+mean_data <- mean (brs02)
+sd_data <- sd (brs02)
+mean_post <- weighted.mean(c(mean_prior, mean_data), c(1/sd_prior, 1/sd_data))
+sd_post <-  (1/sd_prior + 1/sd_data)^(-1)
+data.frame (speaker = 'brs02', mean_post = mean_post, sd_post = sd_post)
+```
+
+### 4.2
+```{r setup, include=FALSE}
+tt01 <- Coretta[Coretta$speaker == 'tt01',]$vowel.dur
+mean_data2 <-  mean (tt01)
+sd_data2 <- sd (tt01)
+mean_post2 <- weighted.mean(c(mean_prior, mean_data2), c(1/sd_prior, 1/sd_data2))
+sd_post2 <-  (1/sd_prior + 1/sd_data2)^(-1)
+data.frame (speaker = 'tt01', cred_int_l = qnorm (.025, mean_post2, sd_post2), cred_int_h = qnorm (.975, mean_post2, sd_post2))
+```
