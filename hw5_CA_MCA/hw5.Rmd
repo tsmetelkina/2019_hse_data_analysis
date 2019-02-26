@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ### 5.1
-```{r setup, include=FALSE}
+```{r}
 library(ca)
 library (ggplot2)
 library(tidyverse)
@@ -31,7 +31,7 @@ chairs %>%
 Также некоторые переменные, отображаемые рядом друг с другом на графике, позволяют выделять подкатегории кресел и стульев, например, металлический обеденный стол с низкой спинкой и без ручек vs. крутяще-катящийся рабочий стул с регулировкой высоты; обычное кресло с высокой спинкой и подлокотниками vs. кресло-качалка.
 
 ### 5.3
-```{r setup, include=FALSE}
+```{r}
 colours <- read.csv ('https://raw.githubusercontent.com/agricolamz/2019_data_analysis_for_linguists/master/data/students/tsmetelkina/hw5_CA_MCA/hw5_colreg.csv')
 rownames(colours) <- colours$color
 ca <- ca(colours[-5])
